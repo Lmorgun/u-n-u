@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="417.0" prefWidth="534.0" stylesheets="@styles/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.Controller.RegisterController">
+    <center>
+        <AnchorPane prefHeight="338.0" prefWidth="404.0" styleClass="theme" stylesheets="@styles/style.css" BorderPane.alignment="CENTER">
+            <Button fx:id="onRegister" layoutX="154.0" layoutY="349.0" mnemonicParsing="false" onAction="#onRegistry" prefHeight="40.0" prefWidth="101.0" text="REGISTER" textFill="#ffd954" AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="154.0" AnchorPane.rightAnchor="154.0">
+                <font>
+                    <Font name="Constantia" size="14.0" />
+                </font>
+            </Button>
+            <AnchorPane layoutX="4.0" layoutY="4.0" prefHeight="41.0" prefWidth="406.0" styleClass="windowpane" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <Label alignment="CENTER" prefHeight="42.0" prefWidth="404.0" text="Register in U'N'I" textAlignment="CENTER" textFill="#ffd954" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                    <font>
+                        <Font name="Constantia" size="24.0" />
+                    </font>
+                </Label>
+                <ImageView fx:id="exitIcon" fitHeight="26.0" fitWidth="15.0" layoutX="275.0" layoutY="-53.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <image>
+                        <Image url="@images/x3.png" />
+                    </image>
+                </ImageView>
+            </AnchorPane>
+            <Label fx:id="openLogInWindow" alignment="CENTER" layoutX="181.0" layoutY="388.0" onMouseClicked="#openLogin" prefHeight="22.0" prefWidth="175.0" styleClass="text" text="Already have an account/Log in" textAlignment="CENTER" textFill="#9a8233" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="181.0" AnchorPane.rightAnchor="180.0" />
+         <TextField fx:id="surnameTextField" layoutX="41.0" layoutY="145.0" prefHeight="33.0" prefWidth="167.0" promptText="Surname" styleClass="textfield" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="325.0">
+            <font>
+               <Font size="13.0" />
+            </font>
+         </TextField>
+         <TextField fx:id="nameTextField" layoutX="41.0" layoutY="86.0" prefHeight="33.0" prefWidth="168.0" promptText="Name" styleClass="textfield" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="325.0">
+            <font>
+               <Font size="13.0" />
+            </font>
+         </TextField>
+         <TextField fx:id="phNumberTextField" layoutX="184.0" layoutY="202.0" prefHeight="33.0" prefWidth="168.0" promptText="Phone number" styleClass="textfield" AnchorPane.leftAnchor="183.0" AnchorPane.rightAnchor="183.0">
+            <font>
+               <Font size="13.0" />
+            </font>
+         </TextField>
+         <PasswordField fx:id="passwordTextField2" layoutX="320.0" layoutY="263.0" prefHeight="33.0" prefWidth="168.0" promptText="Password" styleClass="textfield" AnchorPane.rightAnchor="40.0">
+            <font>
+               <Font size="13.0" />
+            </font>
+         </PasswordField>
+         <TextField fx:id="dateOfBirthTextField" layoutX="320.0" layoutY="145.0" prefHeight="33.0" prefWidth="167.0" promptText="Date of birth" styleClass="textfield" AnchorPane.rightAnchor="40.0">
+            <font>
+               <Font size="13.0" />
+            </font>
+         </TextField>
+         <TextField fx:id="nickTextField" layoutX="320.0" layoutY="86.0" prefHeight="33.0" prefWidth="168.0" promptText="Nick" styleClass="textfield" AnchorPane.leftAnchor="325.0" AnchorPane.rightAnchor="40.0">
+            <font>
+               <Font size="13.0" />
+            </font>
+         </TextField>
+         <PasswordField fx:id="passwordTextField" layoutX="41.0" layoutY="263.0" prefHeight="33.0" prefWidth="168.0" promptText="Password" styleClass="textfield">
+            <font>
+               <Font size="13.0" />
+            </font>
+         </PasswordField>
+        </AnchorPane>
+    </center>
+</BorderPane>

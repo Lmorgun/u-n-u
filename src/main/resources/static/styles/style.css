@@ -1,0 +1,181 @@
+.theme {
+    -fx-background-image: url(../images/fon.jpg);
+    -fx-border-color: #A27C3D;
+}
+
+.theme:light{
+    -fx-background-image: url(../images/fon-3.jpg);
+    -fx-border-color: black;
+}
+
+.windowpane{
+    -fx-background-color: rgba(9, 4, 9, 0.73);
+}
+
+.button{
+    -fx-background-color: rgba(9, 4, 9, 0.73);
+}
+
+.button:hover{
+    -fx-background-color: rgba(99, 99, 99, 0.89);
+}
+
+.textfield{
+    -fx-background-color: rgba(9, 4, 9, 0.73);
+    -fx-border-color: #A27C3D;
+    -fx-prompt-text-fill: #454545;
+}
+
+.text:hover{
+    -fx-text-fill: #ffd954;
+
+}
+.panel1{
+    -fx-background-color: #11111d;
+}
+.panel1:light{
+    -fx-background-color: rgba(141, 104, 72, 0.96);
+}
+.accountPane{
+    -fx-background-color: rgba(61, 61, 95, 0.9);
+}
+.accountPane:light{
+    -fx-background-color: rgba(184, 138, 101, 0.87);
+}
+.friendPane{
+    -fx-background-color: #11111d;
+}
+.friendPane:light{
+    -fx-background-color: rgba(208, 155, 86, 0.82);
+}
+.main{
+    -fx-background-image: url(../images/fon.jpg);
+}
+.chatt{
+    -fx-background-color: rgba(19, 19, 56, 0.4);
+}
+
+.chatt:light{
+    -fx-background-color: rgba(184, 138, 101, 0.82);
+}
+
+.user:light{
+    -fx-background-color: #FFF5EE;
+}
+.user{
+    -fx-background-color: rgba(35, 35, 59, 0.93);
+}
+.label1:light{
+    -fx-background-color: rgba(198, 153, 121, 0.77);
+    -fx-border-color: #1d0b01;
+}
+.label1{
+    -fx-background-color: rgba(148, 131, 222, 0.31);
+}
+.label2:light{
+    -fx-background-color: rgba(224, 174, 110, 0.92);
+    -fx-border-color: #1d0b01 ;
+}
+.label2{
+    -fx-background-color: rgba(161, 159, 227, 0.49);
+}
+.friendList:light{
+    -fx-background-color: rgba(229, 176, 107, 0.82);
+}
+.friendList{
+    -fx-background-color: rgba(40, 39, 82, 0.72);
+}
+.chatList:light{
+    -fx-background-color: rgba(255, 235, 210, 0.56);
+}
+.chatList{
+    -fx-background-color: rgba(177, 177, 243, 0.15);
+}
+.senderSMS:light{
+    -fx-background-color: rgba(224, 174, 110, 0.92);
+    -fx-background-radius: 15;
+}
+.senderSMS{
+    -fx-background-color: rgba(147, 144, 206, 0.93);
+    -fx-background-radius: 15;
+}
+.recepientSMS:light{
+    -fx-background-color: rgb(184, 138, 101);
+    -fx-background-radius: 15;
+}
+.recepientSMS{
+    -fx-background-color: rgba(228, 223, 255, 0.47);
+    -fx-background-radius: 15;
+}
+.friend:light{
+    -fx-background-color: rgba(147, 109, 81, 0.49);
+}
+.friend{
+    -fx-background-color: rgba(161, 159, 227, 0.49);
+}
+.friend:hover{
+    -fx-background-color: rgba(212, 212, 255, 0.81);
+}
+.friend:light:hover{
+    -fx-background-color: rgba(255, 245, 238, 0.9);
+}
+.searchField{
+    -fx-background-color: rgba(255, 255, 255, 0.15);
+    -fx-text-fill: white;
+}
+.searchField:light{
+    -fx-background-color: rgba(255, 255, 255, 0.15);
+    -fx-text-fill:  #1d0b01;
+}
+
+
+.editicon
+{
+    -fx-image: url(../images/editorLight.png)
+}
+.editicon:light
+{
+    -fx-image: url(../images/edit.png)
+}
+.searchicon{
+    -fx-image: url(../images/searchlight.png)
+}
+.searchicon:light{
+    -fx-image: url(../images/search.png)
+}
+.sendOn{
+    -fx-image: url(../images/sendlight.png)
+}
+.sendOn:light{
+    -fx-image: url(../images/pngegg.png)
+}
+.sendOn:light:hover{
+    -fx-image: url(../images/sendOn.png)
+}
+.textColor:light{
+    -fx-text-fill: #1d0b01;
+}
+.editTheme{
+    -fx-image: url(../images/sun.png)
+}
+.editTheme:light{
+    -fx-image: url(../images/moon.png)
+}
+.textColor{
+    -fx-text-fill: white;
+}
+.scroll{
+    -fx-background-color: rgb(246, 242, 242);
+}
+.message_text{
+    -fx-font-family: Constantia;
+    -fx-font-size: 14;
+}
+.back{
+    -fx-image: url(../images/backIconLight.png)
+}
+.back:light{
+    -fx-image: url(../images/backIcon.png)
+}
+.scroll-pane > .viewport {-fx-background-color: transparent;}
+.scroll-pane {-fx-background-color: transparent;}

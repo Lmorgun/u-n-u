@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="361.0" prefWidth="404.0" stylesheets="@styles/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.Controller.AuthController">
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="theme" stylesheets="@styles/style.css" BorderPane.alignment="CENTER">
+         <Button fx:id="ButtonAction" layoutX="153.0" layoutY="246.0" mnemonicParsing="false" onAction="#logIn" prefHeight="40.0" prefWidth="101.0" text="LOG in" textFill="#ffd954" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="153.0" AnchorPane.rightAnchor="153.0">
+            <font>
+               <Font name="Constantia" size="14.0" />
+            </font>
+         </Button>
+         <TextField fx:id="loginTextField" layoutX="119.0" layoutY="138.0" prefHeight="33.0" prefWidth="169.0" promptText="Login" styleClass="textfield" AnchorPane.leftAnchor="119.0" AnchorPane.rightAnchor="119.0">
+            <font>
+               <Font size="13.0" />
+            </font>
+         </TextField>
+         <PasswordField fx:id="passwordTextField" layoutX="120.0" layoutY="195.0" prefHeight="33.0" prefWidth="169.0" promptText="Password" styleClass="textfield" AnchorPane.leftAnchor="119.0" AnchorPane.rightAnchor="119.0">
+            <font>
+               <Font size="13.0" />
+            </font>
+         </PasswordField>
+         <AnchorPane layoutX="3.0" layoutY="3.0" prefHeight="80.0" prefWidth="406.0" styleClass="windowpane" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+            <Label alignment="CENTER" prefHeight="71.0" prefWidth="404.0" text="U'N'I" textAlignment="CENTER" textFill="#ffd954">
+               <font>
+                  <Font name="Constantia" size="36.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="exitIcon" fitHeight="26.0" fitWidth="15.0" layoutX="275.0" layoutY="-53.0" onMouseClicked="#onCloseWindow" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <image>
+                  <Image url="@images/x3.png" />
+               </image>
+            </ImageView>
+         </AnchorPane>
+         <Label fx:id="registerLabel" alignment="CENTER" layoutX="120.0" layoutY="284.0" onMouseClicked="#openRegisterWindow" prefHeight="22.0" prefWidth="177.0" styleClass="text" text="Don't have an account/Register" textAlignment="CENTER" textFill="#9a8233" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="120.0" />
+      </AnchorPane>
+   </center>
+</BorderPane>
