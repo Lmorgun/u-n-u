@@ -4,6 +4,7 @@ import client.CustomNode.ChatNode;
 import client.CustomNode.MessageNode;
 import data.entity.Message;
 import data.entity.User;
+import javafx.application.Platform;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -11,17 +12,22 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class MainController extends Controller {
 
+    @FXML
+    private AnchorPane toolwindow;
     @FXML
     private BorderPane mainWindow;
 
@@ -76,7 +82,7 @@ public class MainController extends Controller {
     @FXML
     void backIcon(MouseEvent event) {
         isSearching = false;
-        drawDialogs();
+        drawDialogs(Client.getUrSMS());
         backButton.setDisable(true);
     }
 
@@ -106,8 +112,9 @@ public class MainController extends Controller {
 
     @FXML
     private void onSending(Event event) {
-        if (!textMessField.getText().isBlank()) {
-            Message mess = new Message(Client.getPip(), friend, textMessField.getText(), LocalDateTime.now());
+
+        if (!textMessField.getText().isBlank() && friend!=null) {
+            Message mess = new Message(Client.getPip(), friend, textMessField.getText());
             Client.sendMessage(mess);
         }
         textMessField.clear();
@@ -121,29 +128,30 @@ public class MainController extends Controller {
         }
         isSearching = true;
         backButton.setDisable(false);
-        for (User user : users
-        ) {
-            String lastMessage = "";
+        Map<User,List<Message>> fondUser = new HashMap<>();
+        for (User user : users) {
+            Message lastMessage = null;
             if (Client.getUrSMS().containsKey(user)) {
-                lastMessage = Client.getUrSMS().get(user).get(Client.getUrSMS().get(user).size() - 1).getText();
-            }
-            var a = new ChatNode(user, lastMessage);
-            applyTheme(a);
-            a.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent mouseEvent) {
-                    var m = (ChatNode) mouseEvent.getSource();
-                    drawMessages(m.getUser());
+                List<Message> msgsUser = Client.getUrSMS().get(user);
+                if(msgsUser.size() > 0)
+                {
+                    lastMessage = msgsUser.get(msgsUser.size() - 1);
                 }
-            });
-            friendList.getChildren().add(a);
+            }
+            List<Message> g = new ArrayList<>();
+            if(lastMessage!=null){
+                g.add(lastMessage);
+            }
+            fondUser.put(user,g);
+
         }
+        drawDialogs(fondUser);
     }
 
     @Override
     public void onReceiveMessage(Message message) {
         if (!isSearching) {
-            drawDialogs();
+            drawDialogs(Client.getUrSMS());
         }
         if (message.getOtherUser(Client.getPip()).equals(friend)) {
             var b = new MessageNode(message.getText(),
@@ -155,11 +163,28 @@ public class MainController extends Controller {
 
     }
 
+    double xOffset = 0;
+    double yOffset = 0;
+
     @Override
     public void initialize() {
         super.initialize();
+        Platform.runLater(() -> {
+            if (toolwindow != null) {
+                toolwindow.addEventHandler(MouseEvent.MOUSE_DRAGGED, (e) -> {
+                    Window window = Client.getStage();
+                    window.setX(e.getScreenX() + xOffset);
+                    window.setY(e.getScreenY() + yOffset);
+                });
 
-        messList.getChildren().add(new MessageNode("fffffffff", "12.08.08", false));
+                toolwindow.addEventHandler(MouseEvent.MOUSE_PRESSED, (e) -> {
+                    Window window = Client.getStage();
+                    xOffset = window.getX() - e.getScreenX();
+                    yOffset = window.getY() - e.getScreenY();
+                });
+
+            }
+        });
 
     }
 
@@ -168,13 +193,13 @@ public class MainController extends Controller {
         urName.setText(Client.getPip().getName());
         urNick.setText(Client.getPip().getNick());
         urPhNumb.setText(Client.getPip().getPhone_number());
-        drawDialogs();
+        drawDialogs(Client.getUrSMS());
 
     }
 
-    public void drawDialogs() {
+    public void drawDialogs(Map<User, List<Message>> userList) {
         friendList.getChildren().clear();
-        Map<User, List<Message>> userList = Client.getUrSMS();
+
         for (var user : userList.entrySet()
         ) {
             var a = new ChatNode(user.getKey(),
@@ -212,6 +237,7 @@ public class MainController extends Controller {
         if (!textForSearch.getText().isBlank()) {
             Client.doSearch(textForSearch.getText());
         }
+
     }
 
 }

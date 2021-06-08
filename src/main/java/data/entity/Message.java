@@ -22,20 +22,20 @@ public class Message {
         return receiver;
     }
 
-    public Message(int id, User sender, User receiver, String text, LocalDateTime date) {
+    public Message(int id, User sender, User receiver, String text, LocalDateTime date, boolean status_unread) {
         this.id = id;
         this.sender = sender;
         this.receiver = receiver;
         this.text = text;
         this.date = date;
-        this.status_unread = false;
+        this.status_unread = status_unread;
     }
 
-    public Message(User sender, User receiver, String text, LocalDateTime date) {
+    public Message(User sender, User receiver, String text) {
         this.sender = sender;
         this.receiver = receiver;
         this.text = text;
-        this.date = date;
+        this.date = LocalDateTime.now();
         this.status_unread = false;
     }
     public User getOtherUser(User user){
